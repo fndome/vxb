@@ -13,9 +13,9 @@ fn main() {
 	
 	built := b.build()
 
-	sql_text, args := built.sql_of_select()
-	arg_strings := args.map(vxb.scalar_to_string(it))
+	sql_text, vs := built.sql_of_select()
+	vs_strings := vxb.vs2str(vs)
 
 	println('SQL => $sql_text')
-	println('ARGS => $arg_strings')
+	println('ARGS => $vs_strings')
 }
