@@ -1,0 +1,7 @@
+feat: bootstrap vxb (V builder prototype)
+
+- add initial README and changelog for V implementation
+- implement chainable Builder with auto-filtering predicates
+- support select, sort, limit/offset, and IN clauses
+- provide SQL result with ordered argument list
+
