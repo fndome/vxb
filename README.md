@@ -25,8 +25,8 @@ fn main() {
     builder.limit(50)
 
     built := builder.build()
-    sql_text, args := built.sql_of_select()
-	vs_strings := args.map(vxb.scalar_to_string(it))
+    sql_text, vs := built.sql_of_select()
+	vs_strings := vxb.vs2str(vs)
     println(sql_text)
     println(vs_strings)
 }
