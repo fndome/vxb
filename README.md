@@ -17,16 +17,18 @@ import vxb
 
 fn main() {
     mut builder := vxb.of('users')
-        .select('id', 'name', 'email')
-        .eq('status', 'active')
-        .gt('age', 18)
-        .like('name', 'jo')
-        .sort('created_at', 'desc')
-        .limit(50)
+    builder.select('id', 'name', 'email')
+    builder.eq('status', 'active')
+    builder.gt('age', 18)
+    builder.like('name', 'jo')
+    builder.sort('created_at', 'desc')
+    builder.limit(50)
 
-    result := builder.build()
-    println(result.sql)
-    println(result.args)
+    built := builder.build()
+    sql_text, args := built.sql_of_select()
+	vs_strings := args.map(vxb.scalar_to_string(it))
+    println(sql_text)
+    println(vs_strings)
 }
 ```
 
